@@ -12,6 +12,7 @@
 #container {
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     height: 900px;
@@ -24,15 +25,28 @@
     height: 40%;
     margin: 10px;
     background-color: #f2f2f2;
-
+    overflow: hidden;
     box-shadow: -8px 13px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.card:hover {
+    transform: translate(-1px);
 }
 
 
 .card-header img {
     border-radius: 10px 10px 0 0;
     width: 100%;
+    filter: grayscale(100%);
+    transition: transform 2s ease;
 }
+
+.card-header img:hover {
+    filter: none;
+    transform: scale(1.2);
+}
+
 .card-text {
     padding: 20px;
 }
@@ -42,7 +56,31 @@
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 .card-text p {
 
     font-size: 14px;
+}
+
+/*animation du like*/
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(232, 45, 45);
+    position: absolute;
+    top: 0;
+    left: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.8;
+
+}
+
+.card:hover .heart {
+    left: 0;
+    transition: 0.6s;
 }
